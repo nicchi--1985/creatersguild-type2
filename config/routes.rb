@@ -1,10 +1,14 @@
 Creatersguild::Application.routes.draw do
+  get "top/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   root :to => "users#new"
   devise_for :users
   resources :users
+
+  match '/top' => 'top#index'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
