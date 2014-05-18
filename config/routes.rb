@@ -3,12 +3,8 @@ Creatersguild::Application.routes.draw do
   # first created -> highest priority.
 
   root :to => "users#new"
-  resources :users do
-    collection do
-      get 'login'
-    end
-  end
-
+  devise_for :users
+  resources :users
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

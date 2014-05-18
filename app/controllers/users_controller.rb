@@ -12,8 +12,4 @@ class UsersController < ApplicationController
 			render 'users'
 		end
 	end
-
-	def login
-		@user = User.new()
-	end
 end
