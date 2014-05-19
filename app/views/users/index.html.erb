@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Panel heading</div>
+
+  <!-- Table -->
+  <table class="table">
+  	<thead>
+	  	<tr>
+	  		<th>ID</th>
+	  		<th>NAME</th>
+	  	</tr>
+  	</thead>
+  	<tbody>
+	  	<% if @users != nil then %>
+			<% @users.each do |user| %>
+			<tr>
+				<td><%= user.id %></td>
+		  		<td><%= user.name %></td>
+	  		</tr>
+		  	<% end %>
+		<% else %>
+		<tr>
+			<td> - </td>
+		  	<td> - </td>
+		</tr>
+	  	<% end %>
+  	<tbody>
+  </table>
+</div>
