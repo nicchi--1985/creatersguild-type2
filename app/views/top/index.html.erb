@@ -1,26 +1,45 @@
 <% content_for :title do %>
-	開発トップ | Creater'sGuild
+	Top | Creater'sGuild
 <% end %>
 
 <div id="main_contents" class="basic_padding">
-	<h3><a class="pull-right" href="mailto:creatersguild2013@gmail.com">
-			<span class="glyphicon glyphicon-envelope">お問い合わせ</span>
-	</a></h3>
-	<div id="logo_top_wrapper">
+	<div id="logo_top_wrapper" class="container">
 			<img id="logo" src="./MasterLogo.png" />
 	</div><!--logo_wrapper-->
-	<div id="greeting_msg">
-		<p>　当サービスへご登録頂き誠にありがとうございます。</p>
-		<p>これから皆様にご協力頂きながらサービスの本格リリースに向けて、</p>
-		<p>開発を進めて行きたいと思いますのでよろしくお願い致しますm(_ _)m</p>
+
+	<div id="req_form_wrapper" class="container">
+	<h3>リクエストを出す</h3>
+	<%= form_for @newrequest do |f| %>
+		<%= f.label :title, 'リクエスト：' %><br>
+		<%= f.text_field :title %><br>
+		<%= f.label :discription, '要望：' %><br>
+		<%= f.text_area :discription, :size => "40x5" %><br>
+		<%= f.label :budget, '予算：' %><br>
+		<%= f.text_field :budget %>円<br><br>
+		<%= f.hidden_field :user_id, :value => 1 %>
+		<%= image_tag @newrequest.image.thumb.url if @newrequest.image? %>
+		<%= f.file_field :image %>
+		<%= f.hidden_field :image_cache %>
+		<%= f.submit '投稿する', :class => "submit_btn" %>
+	<% end %>
 	</div>
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-11">
-			<h3><span class="label label-info">News | 開発最新情報</span></h3>
-			<div id="news_wrapper">
-				<%= render 'newsfeeds' %>
-			</div>
+
+	<h3>リクエスト一覧</h3>
+		<div class="row">
+			<% @requests.each do |req| %>
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">
+						<% if req.image? %>
+						<%= image_tag req.image.thumb.url %>
+						<% else %>
+						<span class="glyphicon glyphicon-plus"></span>
+						<% end %>
+						<div class="caption">
+						<h3><%= req.title %></h3>
+						<p><%= req.discription %></p>
+						</div>
+					</div>
+				</div>
+			<% end if @requests.present? %>
 		</div>
-	</div>
 </div>

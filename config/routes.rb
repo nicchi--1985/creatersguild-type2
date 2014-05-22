@@ -1,5 +1,8 @@
 Creatersguild::Application.routes.draw do
+  get "requests/index"
+
   get "top/index"
+  match 'devtop' => 'top#devtop'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -7,6 +10,7 @@ Creatersguild::Application.routes.draw do
   root :to => "users#new"
   devise_for :users
   resources :users
+  resources :requests
 
   match '/top' => 'top#index'
 

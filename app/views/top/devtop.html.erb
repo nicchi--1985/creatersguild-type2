@@ -1,0 +1,26 @@
+<% content_for :title do %>
+	開発トップ | Creater'sGuild
+<% end %>
+
+<div id="main_contents" class="basic_padding">
+	<h3><a class="pull-right" href="mailto:creatersguild2013@gmail.com">
+			<span class="glyphicon glyphicon-envelope">お問い合わせ</span>
+	</a></h3>
+	<div id="logo_top_wrapper">
+			<img id="logo" src="./MasterLogo.png" />
+	</div><!--logo_wrapper-->
+	<div id="greeting_msg">
+		<p>　当サービスへご登録頂き誠にありがとうございます。</p>
+		<p>これから皆様にご協力頂きながらサービスの本格リリースに向けて、</p>
+		<p>開発を進めて行きたいと思いますのでよろしくお願い致しますm(_ _)m</p>
+	</div>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-11">
+			<h3><span class="label label-info">News | 開発最新情報</span></h3>
+			<div id="news_wrapper">
+				<%= render 'newsfeeds' %>
+			</div>
+		</div>
+	</div>
+</div>

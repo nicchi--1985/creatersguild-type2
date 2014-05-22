@@ -25,6 +25,10 @@ gem 'therubyracer'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'less-rails'
 
+# image uploader
+gem 'carrierwave'
+gem 'rmagick'
+
 # authentication gem
 gem 'devise'
 

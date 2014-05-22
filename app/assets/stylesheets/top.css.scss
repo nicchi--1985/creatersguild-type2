@@ -16,10 +16,21 @@
 
 #logo_top_wrapper{
 	width: 200px;
-	margin-top: 10px;
-	margin-left: 10px;
+	margin: 10px auto;
 	#logo{
 	  width:100%;
+	}
+}
+
+#req_form_wrapper{
+	width:330px;
+	.new_request{
+		background-color: rgba(200,200,200,0.3);
+		padding:10px;
+		width:325px;
+		input{
+			width:300px;
+		}
 	}
 }
 

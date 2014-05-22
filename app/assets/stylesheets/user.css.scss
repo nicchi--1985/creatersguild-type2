@@ -12,6 +12,18 @@ body{
   box-shadow: 1px 1px 3px 1px rgba(120,120,120,0.2); 
 }
 
+.submit_btn{
+	border-style: none;
+	border-radius: 3px;
+	width:100%;
+	padding:5px 20px 5px 20px;
+	margin-top: 10px;
+	background-color: #33cdc7;
+	color:white;
+	font-weight: bold;
+	font-size: large;
+}
+
 //concept elements
 
 .concept_padding{
@@ -83,16 +95,5 @@ margin-top:30px;
 	}
 	input{
 		width:95%;
-	}
-	input[type="submit"]{
-		border-style: none;
-		border-radius: 3px;
-		width:100%;
-		padding:5px 20px 5px 20px;
-		margin-top: 10px;
-		background-color: #33cdc7;
-		color:white;
-		font-weight: bold;
-		font-size: large;
 	}
 }
