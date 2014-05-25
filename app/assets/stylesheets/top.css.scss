@@ -14,6 +14,10 @@
 
 //top elements
 
+#main_contents{
+	width:100%;
+}
+
 #logo_top_wrapper{
 	width: 200px;
 	margin: 10px auto;
@@ -23,13 +27,15 @@
 }
 
 #req_form_wrapper{
-	width:330px;
 	.new_request{
 		background-color: rgba(200,200,200,0.3);
 		padding:10px;
-		width:325px;
+		width:100%;
 		input{
-			width:300px;
+			width:100%;
+		}
+		textarea{
+			width:100%;
 		}
 	}
 }

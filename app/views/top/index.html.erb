@@ -2,27 +2,30 @@
 	Top | Creater'sGuild
 <% end %>
 
-<div id="main_contents" class="basic_padding">
+<div id="main_contents" class="basic_padding container">
 	<div id="logo_top_wrapper" class="container">
 			<img id="logo" src="./MasterLogo.png" />
 	</div><!--logo_wrapper-->
-
-	<div id="req_form_wrapper" class="container">
-	<h3>リクエストを出す</h3>
-	<%= form_for @newrequest do |f| %>
-		<%= f.label :title, 'リクエスト：' %><br>
-		<%= f.text_field :title %><br>
-		<%= f.label :discription, '要望：' %><br>
-		<%= f.text_area :discription, :size => "40x5" %><br>
-		<%= f.label :budget, '予算：' %><br>
-		<%= f.text_field :budget %>円<br><br>
-		<%= f.hidden_field :user_id, :value => 1 %>
-		<%= image_tag @newrequest.image.thumb.url if @newrequest.image? %>
-		<%= f.file_field :image %>
-		<%= f.hidden_field :image_cache %>
-		<%= f.submit '投稿する', :class => "submit_btn" %>
-	<% end %>
-	</div>
+	<div class="container">
+		<div class="row">
+			<div id="req_form_wrapper" class="col-md-offset-2 col-md-6">
+				<h3>リクエストを出す</h3>
+				<%= form_for @newrequest do |f| %>
+					<%= f.label :title, 'リクエスト：' %><br>
+					<%= f.text_field :title %><br>
+					<%= f.label :discription, '要望：' %><br>
+					<%= f.text_area :discription, :size => "40x5" %><br>
+					<%= f.label :budget, '予算：' %><br>
+					<%= f.text_field :budget %>円<br><br>
+					<%= f.hidden_field :user_id, :value => 1 %>
+					<%= image_tag @newrequest.image.thumb.url if @newrequest.image? %>
+					<%= f.file_field :image %>
+					<%= f.hidden_field :image_cache %>
+					<%= f.submit '投稿する', :class => "submit_btn" %>
+				<% end %>
+			</div><!--req_form_wrapper-->
+		</div><!--row-->
+	</div><!--container-->
 
 	<h3>リクエスト一覧</h3>
 		<div class="row">
