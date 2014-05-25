@@ -1,0 +1,34 @@
+<% content_for :title do %>
+	<%= @request.title %> | Creater'sGuild
+<% end %>
+
+<div id="main_contents" class="basic_padding container">
+	<h1><%= @request.title %></h1><br>
+	<%= image_tag @request.image.thumb.url %><br>
+	<%= @request.discription %><br>
+
+
+<%= link_to "提案する", {:controller => "suggestions", :action => "new",:reqid => @request.id}, :class => "submit_btn" %>
+<br>
+<h3>提案一覧</h3>
+		<div class="row">
+			<% @suggestions.each do |sug| %>
+				<div class="col-sm-6 col-md-4">
+					<%= link_to sug do %>
+					<div class="thumbnail">
+						<% if sug.image? %>
+						<%= image_tag sug.image.thumb.url %>
+						<% else %>
+						<span class="glyphicon glyphicon-plus"></span>
+						<% end %>
+						<div class="caption">
+						<h3><%= sug.title %></h3>
+						<p><%= sug.pr_text %></p>
+						<p><%= sug.price %>円</p>
+						</div>
+					</div>
+					<% end %>
+				</div>
+			<% end if @suggestions.present? %>
+		</div>
+</div>

@@ -49,5 +49,6 @@ gem 'devise'
 
 group :development do
   gem 'rspec-rails'
+  gem 'pry-rails'
 end
 

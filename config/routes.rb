@@ -11,6 +11,7 @@ Creatersguild::Application.routes.draw do
   devise_for :users
   resources :users
   resources :requests
+  resources :suggestions
 
   match '/top' => 'top#index'
 

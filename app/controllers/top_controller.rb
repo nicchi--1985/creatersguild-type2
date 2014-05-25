@@ -1,6 +1,6 @@
 class TopController < ApplicationController
   def index
-  	@newrequest = Request.new()
+  	@request = Request.new()
   	@requests = Request.all
   end
 

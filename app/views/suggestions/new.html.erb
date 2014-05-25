@@ -1,0 +1,23 @@
+<h1>register your new Suggetion</h1>
+<% if @suggest.errors.present? %>
+		<%= "入力内容に#{@suggest.errors.count}箇所の不備があります." %><br>
+<% end %>
+
+<%= form_for @suggest do |f| %>
+	<%= f.label :title, '提案：' %>
+	<span style="color:red;"><%= @suggest.errors[:title][0] if @suggest.errors[:title].present? %></span><br>
+	<%= f.text_field :title %><br>
+	<%= f.label :pr_text, '提案内容：' %>
+	<span style="color:red;"><%= @suggest.errors[:pr_text][0] if @suggest.errors[:pr_text].present? %></span><br>
+	<%= f.text_area :pr_text, :size => "40x5" %><br>
+	<%= f.label :price, '提案価格：' %>
+	<span style="color:red;"><%= @suggest.errors[:price][0] if @suggest.errors[:price].present? %></span><br>
+	<%= f.text_field :price%>円<br><br>
+	<%= f.hidden_field :user_id, :value => 1 %>
+	<%= f.hidden_field :request_id %>
+	<%= image_tag @suggest.image.thumb.url if @suggest.image? %>
+	<%= f.file_field :image %>
+	<%= f.hidden_field :image_cache %>
+	<%= f.submit '提案する', :class => "submit_btn" %>
+<% end %>
+
