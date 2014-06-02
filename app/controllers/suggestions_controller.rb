@@ -1,4 +1,6 @@
 class SuggestionsController < ApplicationController
+	before_filter :authenticate_user!
+
 	def new
 		@suggest = Suggestion.new(:request_id => params[:reqid])
 	end

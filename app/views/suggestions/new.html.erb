@@ -13,7 +13,7 @@
 	<%= f.label :price, '提案価格：' %>
 	<span style="color:red;"><%= @suggest.errors[:price][0] if @suggest.errors[:price].present? %></span><br>
 	<%= f.text_field :price%>円<br><br>
-	<%= f.hidden_field :user_id, :value => 1 %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
 	<%= f.hidden_field :request_id %>
 	<%= image_tag @suggest.image.thumb.url if @suggest.image? %>
 	<%= f.file_field :image %>

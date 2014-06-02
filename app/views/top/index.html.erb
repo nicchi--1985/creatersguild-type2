@@ -21,7 +21,7 @@
 					<%= f.text_area :discription, :size => "40x5" %><br>
 					<%= f.label :budget, '予算：' %><br>
 					<%= f.text_field :budget %>円<br><br>
-					<%= f.hidden_field :user_id, :value => 1 %>
+					<%= f.hidden_field :user_id, :value => current_user.id %>
 					<%= image_tag @request.image.thumb.url if @request.image? %>
 					<%= f.file_field :image %>
 					<%= f.hidden_field :image_cache %>
@@ -46,6 +46,7 @@
 						<h3><%= req.title %></h3>
 						<p><%= req.discription %></p><br>
 						<p><%= req.budget if req.budget.present? %>円</p>
+						<div id="req_user" class="pull-right">投稿者：<%= req.user.name %></div>
 						</div>
 					</div>
 					<% end %>
