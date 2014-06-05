@@ -7,28 +7,42 @@
 	<%= image_tag @request.image.thumb.url %><br>
 	<%= @request.discription %><br>
 
-
-<%= link_to "提案する", {:controller => "suggestions", :action => "new",:reqid => @request.id}, :class => "submit_btn" %>
+<% if @request.adoption.blank? %>
+	<%= link_to "提案する", {:controller => "suggestions", :action => "new",:reqid => @request.id}, :class => "submit_btn" %>
+<% end %>
 <br>
 <h3>提案一覧</h3>
 		<div class="row">
 			<% @suggestions.each do |sug| %>
 				<div class="col-sm-6 col-md-4">
-					<%= link_to sug do %>
 					<div class="thumbnail">
+						<%= link_to sug do %>
 						<% if sug.image? %>
 						<%= image_tag sug.image.thumb.url %>
 						<% else %>
 						<span class="glyphicon glyphicon-plus"></span>
 						<% end %>
 						<div class="caption">
-						<h3><%= sug.title %></h3>
-						<p><%= sug.pr_text %></p>
-						<p><%= sug.price %>円</p>
-						<div id="req_user" class="pull-right">投稿者：<%= sug.user.name %></div>
+							<h3><%= sug.title %></h3>
+							<% end %>
+							<p><%= sug.pr_text %></p>
+							<p><%= sug.price %>円</p>
+							<div id="req_user" class="pull-right">投稿者：<%= sug.user.name %></div>
+								<div id="adoption_form_wrapper">
+									<% if sug.adopted == true %>
+											<div class="btn btn-danger">採用済み</div>
+									<% elsif @request.adoption.blank? && @request.user_id == current_user.id %>
+										<%= form_for @adoption do |f| %>
+										<%= f.label :comment, "採用コメント" %>
+										<%= f.text_area :comment, :size => "38x3" %>
+										<%= f.hidden_field :request_id %>
+										<%= f.hidden_field :suggestion_id, :value => sug.id %>
+										<%= f.submit "採用", :class => "submit_btn", :id => "adopt_btn" %>
+										<% end %>
+									<% end %>
+								</div><!--adoption_form_wrapper-->
 						</div>
 					</div>
-					<% end %>
 				</div>
 			<% end if @suggestions.present? %>
 		</div>
