@@ -97,3 +97,16 @@ margin-top:30px;
 		width:95%;
 	}
 }
+
+#newsfeed_wrapper{
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+#newsfeed_wrapper:before{
+	display: block;
+	content: "";
+	border-top: solid 1px rgba(0,0,0,0.4);
+	width: 70%;
+	margin: 10px auto;
+}
+

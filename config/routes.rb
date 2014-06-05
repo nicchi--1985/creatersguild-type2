@@ -12,6 +12,7 @@ Creatersguild::Application.routes.draw do
   resources :users
   resources :requests
   resources :suggestions
+  resources :adoptions, :only => :create
 
   match '/top' => 'top#index'
 

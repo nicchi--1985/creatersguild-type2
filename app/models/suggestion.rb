@@ -3,6 +3,7 @@ class Suggestion < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   belongs_to :request
   belongs_to :user
+  has_one :adoption
 
   validates_presence_of :title, :pr_text, :price, :user_id, :request_id
 end

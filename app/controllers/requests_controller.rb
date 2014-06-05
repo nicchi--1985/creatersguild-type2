@@ -7,6 +7,7 @@ class RequestsController < ApplicationController
   def show
     @request = Request.find(params[:id])
     @suggestions = Suggestion.where("request_id = ?", @request.id)
+    @adoption = Adoption.new(:request_id => @request.id)
   end
 
   def create
