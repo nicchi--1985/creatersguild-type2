@@ -52,3 +52,6 @@ group :development do
   gem 'pry-rails'
 end
 
+gem 'mail-iso-2022-jp'
+
+

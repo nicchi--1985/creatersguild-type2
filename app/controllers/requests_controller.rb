@@ -19,5 +19,4 @@ class RequestsController < ApplicationController
   		render :template => "top/index"
   	end
   end
-
 end
