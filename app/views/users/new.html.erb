@@ -62,14 +62,15 @@
 					<% end %>
 				</div>
 			</div>
-		</div><!--form-->
+		</div><!--form_wrapper-->
+		<%= render 'shared/guestbook' %>
 		<div class="row" id="newsfeed_wrapper">
-		<div class="col-md-2"></div>
-		<div class="col-md-10">
-			<h3><span class="label label-info">News | 開発最新情報</span></h3>
-			<div id="news_wrapper">
-				<%= render 'shared/newsfeeds' %>
+			<div class="col-md-2"></div>
+			<div class="col-md-10">
+				<h3><span class="label label-info">News | 開発最新情報</span></h3>
+				<div id="news_wrapper">
+					<%= render 'shared/newsfeeds' %>
+				</div>
 			</div>
-		</div>
-	</div>
+		</div><!--newsfeed_wrapper-->
 </div>

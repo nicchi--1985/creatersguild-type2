@@ -1,4 +1,6 @@
 Creatersguild::Application.routes.draw do
+  get "guest_messages/create"
+
   get "requests/index"
 
   get "top/index"
@@ -13,6 +15,7 @@ Creatersguild::Application.routes.draw do
   resources :requests
   resources :suggestions
   resources :adoptions, :only => :create
+  resources :guest_messages, :only => :create
 
   match '/top' => 'top#index'
 

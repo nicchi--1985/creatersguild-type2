@@ -1,0 +1,24 @@
+/*_guestbook*/
+#guestbook_wrapper{
+	#guestbook_message{
+		color: rgba(90,90,90,0.8);
+	}
+	form{
+		width:100%;
+		margin-bottom: 50px;
+		td{
+		}
+	}
+}
+
+.name_field{
+	width: 30%;
+}
+.message_field{
+	word-wrap:word-break;
+}
+
+#guestbook_msglist{
+	width:100%;
+}
+

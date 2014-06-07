@@ -7,7 +7,9 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new()
-		#user.html.erb
+		@gmessage = GuestMessage.new()
+		@gmessages = GuestMessage.all
+		#new.html.erb
 	end
 
 	def create
@@ -15,7 +17,8 @@ class UsersController < ApplicationController
 		if @user.save
 			redirect_to :root
 		else
-			render 'users'
+			@gmessage = GuestMessage.new()
+			render 'new'
 		end
 	end
 end

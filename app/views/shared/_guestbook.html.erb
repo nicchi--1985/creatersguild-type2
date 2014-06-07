@@ -1,0 +1,36 @@
+<div id="guestbook_base" class="container">
+<div class="row">
+	<div id="guestbook_wrapper" class="col-md-12">
+		<h4>ご意見板</h4>
+		<span id="guestbook_message">どんな些細な事でも感想でもOKです。声をお聞かせ下さい。</span>
+		<% @gmessage.name = current_user.name if current_user.present? %>
+		<%= form_for @gmessage, :html => {:class => "new_guest_message form-horizontal"} do |f| %>
+			<div class="form_group">
+			<%= f.text_field :name, :class => "form-control", :placeholder => "お名前" %><br>
+			<%= f.text_area :message, :size => "40x3", :class => "form-control", :placeholder => "コメント" %>
+			</div>
+			<%= f.submit "投稿", :class => "btn btn-default navbar-btn pull-right" %>		
+		<% end %>
+		<div id="guestbook_msglist" class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">コメント一覧</div>
+	  		<table class="table">
+	  			<thead>
+				<tr>
+	        		<th class="name_field">お名前</th>
+	        		<th class="message_field">コメント</th>
+	        	</tr>
+	        	</thead>
+	        	<tbody>
+					<% @gmessages.each do |gm| %>
+		            	<tr>
+		            		<td class="name_field"><%= gm.name %></td>
+							<td class="message_field"><%= gm.message %></td>
+						</tr>
+					<% end if @gmessages.present? %>
+				</tbody>
+			</table>
+		</div><!--panel-->
+	</div><!--guestbook_wrapper-->
+</div><!--row-->
+</div>
