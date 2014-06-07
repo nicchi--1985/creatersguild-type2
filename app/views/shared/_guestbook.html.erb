@@ -1,6 +1,7 @@
-<div id="guestbook_base" class="container">
-<div class="row">
-	<div id="guestbook_wrapper" class="col-md-12">
+<div id="guestbook_base">
+	<div class="row">
+	<div class="col-md-2 col-xs-1"></div>
+	<div id="guestbook_wrapper" class="col-md-8 col-xs-10" >
 		<h4>ご意見板</h4>
 		<span id="guestbook_message">どんな些細な事でも感想でもOKです。声をお聞かせ下さい。</span>
 		<% @gmessage.name = current_user.name if current_user.present? %>
@@ -32,5 +33,5 @@
 			</table>
 		</div><!--panel-->
 	</div><!--guestbook_wrapper-->
-</div><!--row-->
+	</div><!--row-->
 </div>

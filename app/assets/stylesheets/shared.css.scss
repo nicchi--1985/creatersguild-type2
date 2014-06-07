@@ -1,5 +1,7 @@
 /*_guestbook*/
 #guestbook_wrapper{
+	padding-left: 3%;
+	padding-right:3%;
 	#guestbook_message{
 		color: rgba(90,90,90,0.8);
 	}
@@ -19,6 +21,6 @@
 }
 
 #guestbook_msglist{
-	width:100%;
+	
 }
 
